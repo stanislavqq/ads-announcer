@@ -57,10 +57,6 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function getFaceTypeAttribute() {
-        //if ($this->face)
-    }
-
     public function ads() {
         return $this->hasMany(Ad::class, 'author_id', 'id');
     }
