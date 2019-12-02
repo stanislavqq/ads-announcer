@@ -13,3 +13,12 @@
 and
 
 > php artisan migrate && php artisan db:seed
+
+after 
+
+To change the value of a baseURL in app.js
+> axios.defaults.baseURL = 'http://your-host/api';
+
+ last action
+
+> npm run prod

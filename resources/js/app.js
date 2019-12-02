@@ -26,7 +26,7 @@ Vue.use(ElementUI);
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = 'http://ads-a.loc/api';
+axios.defaults.baseURL = 'http://your-host/api';
 const router = new VueRouter({
     routes: [
         {
