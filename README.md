@@ -7,5 +7,9 @@
  Customize your .env
  
  Run
- > php artisan migrate && php artisan db:seed
+ 
+> composer i && npm i
 
+and
+
+> php artisan migrate && php artisan db:seed
