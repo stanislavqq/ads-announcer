@@ -35,11 +35,6 @@ const router = new VueRouter({
             component: Personal
         },
         {
-            path: '/:country?/:city?',
-            name: 'home',
-            component: Home
-        },
-        {
             path: '/register',
             name: 'register',
             component: Register
@@ -47,7 +42,13 @@ const router = new VueRouter({
             path: '/login',
             name: 'login',
             component: Login
-        }]
+        },
+        {
+            path: '/:country?/:city?',
+            name: 'home',
+            component: Home
+        },
+     ]
 });
 
 Vue.router = router
