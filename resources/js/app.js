@@ -17,38 +17,43 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
+import VueLang from 'vuejs-localization';
+
+VueLang.requireAll(require.context('./lang', true, /\.js$/));
 
 locale.use(lang);
 
-Vue.prototype.trans = string => _.get(window.i18n, string);
-
 Vue.use(ElementUI);
-
+Vue.use(VueLang);
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = 'http://your-host/api';
+axios.defaults.baseURL = window.location.origin + '/api';
+
+const baseRoutes = [
+    {
+        path: '/personal',
+        name: 'personal',
+        component: Personal
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register
+    }, {
+        path: '/login',
+        name: 'login',
+        component: Login
+    },
+    {
+        path: '/:country?/:city?',
+        name: 'home',
+        component: Home
+    },
+];
+
 const router = new VueRouter({
-    routes: [
-        {
-            path: '/personal',
-            name: 'personal',
-            component: Personal
-        },
-        {
-            path: '/register',
-            name: 'register',
-            component: Register
-        }, {
-            path: '/login',
-            name: 'login',
-            component: Login
-        },
-        {
-            path: '/:country?/:city?',
-            name: 'home',
-            component: Home
-        },
-     ]
+    mode: 'history',
+    routes: baseRoutes,
 });
 
 Vue.router = router

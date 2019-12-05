@@ -7,7 +7,7 @@
         </div>
         <div class="desc text item">{{ ad.description }}</div>
         <span class="category-name text item">{{ ad.category.name }}</span>
-        <div style="float: right" class="author-name text item">{{ trans('ads.author.label') }}: {{ ad.author.name }}</div>
+        <div style="float: right" class="author-name text item">{{ $lang.ads.author.label }}: {{ ad.author.name }}</div>
     </el-card>
 </template>
 

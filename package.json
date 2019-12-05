@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "@websanova/vue-auth": "^2.21.14-beta",
-        "element-ui": "^2.13.0"
+        "element-ui": "^2.13.0",
+        "vuejs-localization": "^1.0.3"
     }
 }

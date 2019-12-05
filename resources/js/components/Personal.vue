@@ -1,6 +1,6 @@
 <template>
     <div id="personal-page" :loading="loading">
-        <h1>{{ trans('personal.text') }}</h1>
+        <h1>{{ $lang.personal.text }}</h1>
 
         <el-row :gutter="20">
             <el-col :span="12">
@@ -8,14 +8,14 @@
                     <el-card v-for="ad in ads" v-bind:key="ad.id" class="box-card">
                         <div slot="header" class="clearfix">
                             <el-button v-if="editing === ad.id" @click="cancelEdit()" style="padding: 3px 0"
-                                       type="text">{{ trans('common.cancel') }}
+                                       type="text">{{ $lang.common.cancel }}
                             </el-button>
                             <el-button v-if="!editing || editing !== ad.id" :disabled="editing && editing !== ad.id"
-                                       @click="edit(ad)" style="padding: 3px 0" type="text">{{ trans('common.edit') }}
+                                       @click="edit(ad)" style="padding: 3px 0" type="text">{{ $lang.common.edit }}
                             </el-button>
 
                             <el-button @click="remove(ad)" style="float: right; padding: 3px 0; color: #F56C6C;"
-                                       type="text">{{ trans('common.delete') }}
+                                       type="text">{{ $lang.common.delete }}
                             </el-button>
                         </div>
                         <div class="text item">
@@ -72,7 +72,7 @@
                         </div>
                         <div class="bottom clearfix">
                             <el-button v-if="editing && ad.id === editing" @click="update(editForm)" type="success"
-                                       class="button">{{ trans('common.save') }}
+                                       class="button">{{ $lang.common.save }}
                             </el-button>
                         </div>
                     </el-card>

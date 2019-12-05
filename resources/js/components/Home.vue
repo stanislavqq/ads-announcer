@@ -1,7 +1,7 @@
 <template>
 
     <div>
-        <h1>{{ trans('ads.title') }}</h1>
+        <h1>{{ $lang.ads.title }}</h1>
 
         <div class="filter-ads" v-if="$auth.check()">
             <el-row>
@@ -44,8 +44,8 @@
                     </el-select>
                 </el-col>
                 <el-col :span="6" class="text-right">
-                    <el-button @click="filterClear" type="primary">{{ trans('ads.filter.clear_button') }}</el-button>
-                    <el-button @click="filterHandler" type="primary">{{ trans('ads.filter.button') }}</el-button>
+                    <el-button @click="filterClear" type="primary">{{ $lang.ads.filter.clear_button }}</el-button>
+                    <el-button @click="filterHandler" type="primary">{{ $lang.ads.filter.button }}</el-button>
                 </el-col>
             </el-row>
         </div>
@@ -57,7 +57,7 @@
                     </el-col>
                 </template>
                 <template v-else>
-                    {{ trans('ads.not_found')}}
+                    {{ $lang.ads.not_found }}
                 </template>
             </el-row>
         </div>

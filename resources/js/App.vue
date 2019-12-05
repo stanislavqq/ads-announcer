@@ -5,6 +5,7 @@
             <div class="container">
                 <router-link class="navbar-brand" :to="{ name: 'home' }">Ads announcer</router-link>
 
+                <lang-switch :availableLang="langs" :lang="$lang.getLang()" @changeLang="changeLangEvent"></lang-switch>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="">
@@ -21,11 +22,11 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li v-if="!$auth.check()" class="nav-item">
-                            <router-link :to="{ name: 'login' }" class="nav-link">{{ trans('auth.login.text') }}</router-link>
+                            <router-link :to="{ name: 'login' }" class="nav-link">{{ $lang.auth.login.text }}</router-link>
                         </li>
 
                         <li v-if="!$auth.check()" class="nav-item">
-                            <router-link :to="{ name: 'register' }" class="nav-link">{{ trans('auth.register.text') }}</router-link>
+                            <router-link :to="{ name: 'register' }" class="nav-link">{{ $lang.auth.register.text }}</router-link>
                         </li>
 
                         <li v-if="$auth.check()" class="nav-item dropdown">
@@ -35,11 +36,11 @@
                                 </a>
                                 <el-dropdown-menu slot="dropdown">
                                     <el-dropdown-item>
-                                        <router-link :to="{name: 'personal'}">{{ trans('personal.text') }}</router-link>
+                                        <router-link :to="{name: 'personal'}">{{ $lang.personal.text }}</router-link>
                                     </el-dropdown-item>
                                     <el-dropdown-item divided>
                                         <a href="#" @click.prevent="$auth.logout()">
-                                            {{ trans('auth.logout') }}
+                                            {{ $lang.auth.logout }}
                                         </a>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
@@ -67,12 +68,26 @@
 </template>
 
 <script>
+    import LangSwitch from "./components/LangSwitch";
     export default {
         name: "App",
-        methods: {
-
+        components: {LangSwitch},
+        data() {
+            return {
+                langs: [
+                    {key: 'ru', img: '/images/lang_ru.png', value: 'RU'},
+                    {key: 'en', img: '/images/lang_en.png', value: "ENG"}
+                ]
+            }
         },
-        created() {
+        methods: {
+            changeLangEvent(lang) {
+                this.$lang.setLang(lang);
+            }
+        },
+        mounted() {
+            console.log(this.$auth.check());
+            console.log(this.$lang.getLang());
 
         }
     }

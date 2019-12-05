@@ -9,4 +9,7 @@ return [
     'description' => 'Описание',
     'country' => 'Страна',
     'city' => 'Город',
+    'lang' => [
+        'change' => 'Язык изменен'
+    ]
 ];

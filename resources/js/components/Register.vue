@@ -4,7 +4,7 @@
             <p>There was an error, unable to complete registration.</p>
         </div>
         <div class="alert alert-success" v-if="success">
-            <p>{{ trans('auth.register_completed') }}</p>
+            <p>{{ $lang.auth.register_completed }}</p>
             <router-link :to="{name:'login'}">sign in.</router-link>
         </div>
         <form autocomplete="off" @submit.prevent="register" v-if="!success" method="post">

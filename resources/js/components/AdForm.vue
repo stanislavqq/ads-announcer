@@ -2,15 +2,15 @@
     <div class="ad-form">
         <el-card class="box-card">
             <el-form ref="form" :model="form" label-width="120px" :loading="loading">
-                <el-form-item :label="trans('common.title')">
+                <el-form-item :label="$lang.common.title">
                     <el-input v-model="form.title"></el-input>
                 </el-form-item>
 
-                <el-form-item :label="trans('common.description')">
+                <el-form-item :label="$lang.common.description">
                     <el-input type="textarea" v-model="form.description"></el-input>
                 </el-form-item>
 
-                <el-form-item :label="trans('common.category')">
+                <el-form-item :label="$lang.common.category">
                     <el-select v-model="form.category_id" placeholder="Select">
                         <el-option
                             v-for="item in categories"
@@ -21,7 +21,7 @@
                     </el-select>
                 </el-form-item>
 
-                <el-form-item :label="trans('common.country')">
+                <el-form-item :label="$lang.common.country">
                     <el-select v-model="form.country_id" placeholder="Select">
                         <el-option
                             v-for="item in countries"
@@ -32,7 +32,7 @@
                     </el-select>
                 </el-form-item>
 
-                <el-form-item :label="trans('common.city')">
+                <el-form-item :label="$lang.common.city">
                     <el-select v-model="form.city_id" placeholder="Select">
                         <el-option
                             v-for="item in cities"
@@ -42,7 +42,7 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-button @click="save(form)" type="primary">{{ trans('common.save') }}</el-button>
+                <el-button @click="save(form)" type="primary">{{ $lang.common.save }}</el-button>
             </el-form>
         </el-card>
     </div>

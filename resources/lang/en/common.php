@@ -9,4 +9,7 @@ return [
     'description' => 'Description',
     'country' => 'Country',
     'city' => 'City',
+    'lang' => [
+        'change' => 'Language change'
+    ]
 ];
